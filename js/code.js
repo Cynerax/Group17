@@ -108,6 +108,40 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
+function register()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
+
+	let login = document.getElementById("loginName").value;
+	let password = document.getElementById("loginPassword").value;
+
+	document.getElementById("loginResult").innerHTML = "";
+
+	let tmp = { login: login, password: password };
+	let jsonPayload = JSON.stringify(tmp);
+
+	let url = urlBase + '/Register.' + extension;
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				
+
+				document.getElementById("loginResult").innerHTML = "User has been registered. Please login now";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch (err) {
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
+}
+
 function addContact()
 {
 	let newContact = document.getElementById("contactText").value;
@@ -138,6 +172,8 @@ function addContact()
 	}
 	
 }
+
+
 
 function searchContact()
 {
@@ -172,7 +208,7 @@ function searchContact()
 					}
 				}
 				
-				document.getElementsByTagName("p")[0].innerHTML = colorList;
+				document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);
@@ -182,4 +218,9 @@ function searchContact()
 		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
 	
+}
+
+function deleteContact()
+{
+
 }
