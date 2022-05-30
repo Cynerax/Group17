@@ -1,10 +1,10 @@
 <?php
 	$inData = getRequestInfo();
  
-  $contactName = $inData["contactName"];
-  $contactPhone = $inData["contactPhone"];
-  $contactEmail = $inData["contactEmail"];
-  $userId = $inData["userId"];
+  	$contactName = $inData["contactName"];
+  	$contactPhone = $inData["contactPhone"];
+  	$contactEmail = $inData["contactEmail"];
+  	$userId = $inData["userId"];
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
