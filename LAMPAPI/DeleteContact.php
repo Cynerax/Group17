@@ -11,7 +11,7 @@
     else
     {
         $stmt = $conn->prepare("Delete from Contacts WHERE ID=?");
-        $stmt->bind_param("s" ,$contactId);
+        $stmt->bind_param("i" ,$contactId);
         $stmt->execute();
         
         if($stmt->error)
