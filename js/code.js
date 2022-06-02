@@ -108,12 +108,46 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
+function register()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
+
+	let login = document.getElementById("loginName").value;
+	let password = document.getElementById("loginPassword").value;
+
+	document.getElementById("loginResult").innerHTML = "";
+
+	let tmp = { login: login, password: password };
+	let jsonPayload = JSON.stringify(tmp);
+
+	let url = urlBase + '/Register.' + extension;
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				
+
+				document.getElementById("loginResult").innerHTML = "User has been registered. Please login now";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch (err) {
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
+}
+
 function addContact()
 {
 	let newContact = document.getElementById("contactText").value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	let tmp = {color:newContact,userId,userId};
+	let tmp = {contact:newContact,userId,userId};
 	let jsonPayload = JSON.stringify( tmp );
 
 	let url = urlBase + '/AddContact.' + extension;
@@ -136,7 +170,40 @@ function addContact()
 	{
 		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
-	
+
+}
+
+function updateContact()
+{
+	let updatedName = document.getElementById("nameEdit").value;
+	let updatedPhone = document.getElementById("phoneEdit").value;
+	let updatedEmail = document.getElementById("emailEdit").value;
+	let contactId = document.getElementById("ID").value;
+	document.getElementById("updateResult").innerHTML = "";
+
+	let jsonPayload = '{"Name" : "' + updatedName + '", "Phone" : "' + updatedPhone + '", "Email" : "' + updatedEmail + '", "ID" : "' + contactId + '"}';
+
+	let url = urlBase + '/UpdateContact.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				document.getElementById("updateResult").innerHTML = "Contact has been updated";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("updateResult").innerHTML = err.message;
+	}
+
 }
 
 function searchContact()
@@ -165,14 +232,14 @@ function searchContact()
 				
 				for( let i=0; i<jsonObject.results.length; i++ )
 				{
-					colorList += jsonObject.results[i];
+					contactList += jsonObject.results[i];
 					if( i < jsonObject.results.length - 1 )
 					{
-						colorList += "<br />\r\n";
+						contactList += "<br />\r\n";
 					}
 				}
 				
-				document.getElementsByTagName("p")[0].innerHTML = colorList;
+				document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);
