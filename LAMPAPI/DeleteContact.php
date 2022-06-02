@@ -23,14 +23,15 @@
 		return json_decode(file_get_contents('php://input'), true);
 	}
 
+    function sendResultInfoAsJson( $obj )
+	{
+		header('Content-type: application/json');
+		echo $obj;
+	}
     function returnWithError($err)
 	{
-		sendResultInfoAsJson($err);
-	}
-	
-	function returnWithInfo($updateInfo)
-	{
-		sendResultInfoAsJson($contactName, $contactPhone, $contactEmail, $userId, $contactId);
+		$retValue = '{"error":"' . $err . '"}';
+		sendResultInfoAsJson( $retValue );
 	}
 
 ?>
