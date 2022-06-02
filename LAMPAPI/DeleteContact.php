@@ -15,7 +15,7 @@
         $stmt->execute();
         $stmt->close();
         $conn->close();
-		returnWithError("")
+		returnWithError("");
     }
 
     function getRequestInfo()
