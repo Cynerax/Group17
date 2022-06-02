@@ -10,21 +10,12 @@
 	} 
     else
     {
-        $stmt = $conn->prepare("Delete from Contacts WHERE ID=?");
-        $stmt->bind_param("i" ,$contactId);
+        $stmt = $conn->prepare("DELETE FROM Contacts WHERE ID=?");
+        $stmt->bind_param("i" , $contactId);
         $stmt->execute();
-        
-        if($stmt->error)
-        {
-            returnWithError("Contact cannot be found").
-        }
-        else
-        {
-            returnWithInfo()
-        }
-
         $stmt->close();
         $conn->close();
+		returnWithError("Contact deleted")
     }
 
     function getRequestInfo()
