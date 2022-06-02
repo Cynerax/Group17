@@ -15,7 +15,7 @@
         $stmt->execute();
         $stmt->close();
         $conn->close();
-		returnWithError("Contact deleted")
+		returnWithError("")
     }
 
     function getRequestInfo()
@@ -28,6 +28,7 @@
 		header('Content-type: application/json');
 		echo $obj;
 	}
+
     function returnWithError($err)
 	{
 		$retValue = '{"error":"' . $err . '"}';
