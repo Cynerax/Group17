@@ -35,7 +35,7 @@ function doLogin()
 				let jsonObject = JSON.parse( xhr.responseText );
 				userId = jsonObject.id;
 		
-				if( userId < 1 )
+				if(userId < 1)
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
@@ -46,7 +46,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "color.html";
+				window.location.href = "contacts.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -111,15 +111,15 @@ function doLogout()
 function register()
 {
 	userId = 0;
-	firstName = "";
-	lastName = "";
 
-	let login = document.getElementById("loginName").value;
-	let password = document.getElementById("loginPassword").value;
+  let firstName = document.getElementById("firstName").value;
+	let lastName = document.getElementById("lastName").value;
+	let login = document.getElementById("registerName").value;
+	let password = document.getElementById("registerPassword").value;
+ 
+	document.getElementById("registerResult").innerHTML = "";
 
-	document.getElementById("loginResult").innerHTML = "";
-
-	let tmp = { login: login, password: password };
+	let tmp = { firstname: firstName, lastname: lastName, login: login, password: password };
 	let jsonPayload = JSON.stringify(tmp);
 
 	let url = urlBase + '/Register.' + extension;
@@ -129,15 +129,14 @@ function register()
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				
-
-				document.getElementById("loginResult").innerHTML = "User has been registered. Please login now";
+			
+				document.getElementById("registerResult").innerHTML = "User has been registered. Please login now";
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch (err) {
-		document.getElementById("loginResult").innerHTML = err.message;
+		document.getElementById("Result").innerHTML = err.message;
 	}
 
 }
@@ -211,8 +210,9 @@ function searchContact()
 	let srch = document.getElementById("searchText").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
 	
+  const str = " ";
 	let contactList = "";
-
+  let fullName = "";
 	let tmp = {search:srch,userId:userId};
 	let jsonPayload = JSON.stringify( tmp );
 
@@ -227,12 +227,14 @@ function searchContact()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+				document.getElementById("contactSearchResult").innerHTML = "Search Results:";
 				let jsonObject = JSON.parse( xhr.responseText );
 				
 				for( let i=0; i<jsonObject.results.length; i++ )
 				{
-					contactList += jsonObject.results[i];
+        
+					contactList += jsonObject.results[i].Name + "  |  "  + jsonObject.results[i].Email + "  |  " + jsonObject.results[i].Phone;
+              
 					if( i < jsonObject.results.length - 1 )
 					{
 						contactList += "<br />\r\n";
@@ -249,4 +251,9 @@ function searchContact()
 		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
 	
+}
+
+function deleteContact()
+{
+
 }
