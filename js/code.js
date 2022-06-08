@@ -4,7 +4,25 @@ const extension = 'php';
 let userId = 0;
 let firstName = "";
 let lastName = "";
-//aiwfiweufbwpaifubwe;fiuawbef
+
+let globalId = 0;
+
+
+function openmkpopup(){
+	document.getElementById("mkpopup").style.display = "block";
+}
+function closmkpopup(){
+	document.getElementById("mkpopup").style.display = "none";
+}
+
+function showDiv() {
+   document.getElementById('modalRegisterForm').style.display = "block";
+}
+
+function showDiv2() {
+   document.getElementById('modalRegisterForm').style.display = "none";
+}
+
 function doLogin()
 {
 	userId = 0;
@@ -13,12 +31,12 @@ function doLogin()
 	
 	let login = document.getElementById("loginName").value;
 	let password = document.getElementById("loginPassword").value;
-	var hash = md5( password );
+//	var hash = md5( password );
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	//let tmp = {login:login,password:password};
-	var tmp = {login:login,password:hash};
+	let tmp = {login:login,password:password};
+//	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
 	let url = urlBase + '/Login.' + extension;
@@ -34,7 +52,7 @@ function doLogin()
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
 				userId = jsonObject.id;
-		
+        globalId = jsonObject.id;
 				if(userId < 1)
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
@@ -143,6 +161,15 @@ function register()
 
 function addContact()
 {
+  let Name = document.getElementById("Name").value;
+	let Phone = document.getElementById("Phone").value;
+	let Email = document.getElementById("Email").value;
+  let ID = userId;
+  let tmp = { contactName: Name, contactPhone: Phone, contactEmail: Email, userId: ID};
+	let jsonPayload = JSON.stringify(tmp);
+  
+  let url = urlBase + '/AddContact.' + extension;
+  /*
 	let newContact = document.getElementById("contactText").value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
@@ -150,7 +177,7 @@ function addContact()
 	let jsonPayload = JSON.stringify( tmp );
 
 	let url = urlBase + '/AddContact.' + extension;
-	
+	*/
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -207,6 +234,9 @@ function updateContact()
 
 function searchContact()
 {
+  var updatebutton = document.getElementById("updateButton")
+  var deletebutton = document.getElementById("deleteButton")
+
 	let srch = document.getElementById("searchText").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
 	
@@ -234,6 +264,11 @@ function searchContact()
 				{
         
 					contactList += jsonObject.results[i].Name + "  |  "  + jsonObject.results[i].Email + "  |  " + jsonObject.results[i].Phone;
+           
+             
+           //updatebutton[i].addEventListener('click', updateContact(jsonObject.results[i].contactID), false); 
+           //parse contactID as variable through update and delete and grab to use for functions 
+           //button[i] on click delete/update get contactid[i]
               
 					if( i < jsonObject.results.length - 1 )
 					{

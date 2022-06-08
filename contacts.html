@@ -5,7 +5,10 @@
 	<script type="text/javascript" src="js/code.js"></script>
     <link href="css/style.css" rel="stylesheet">	
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  	
+  	<!-- Load icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
   
  
 	<script type="text/javascript">
@@ -29,20 +32,65 @@
 	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
 </div>
 
+
 <div id="accessUIDiv">
 	<br />
-
+  <button type="button" id="addContactButton" class="contactbutton" onclick="openmkpopup();"> Add Contact </button><br />
+  <form class="example" action="javascript:void(0);">
+  <input type="text" id="searchText" placeholder="Search.." name="search">
+  <button type="button" id="searchColorButton" class="searchbutton" onclick="searchContact();"><i class="fa fa-search"></i></button>
+  </form>
+  <!--
 	<input type="text" id="searchText" placeholder="Contact To Search For"/>
-	<button type="button" id="searchColorButton" class="buttons" onclick="searchContacts();"> Search Contact </button><br />
+	<button type="button" id="searchColorButton" class="buttons" onclick="searchContact();"> Search Contact </button><br />
+  -->
+  
 	<span id="contactSearchResult"></span>
 	<p id="contactList">
 	</p><br /><br />
-
+  <!--
 	<input type="text" id="contactText" placeholder="Contact To Add">
-	<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
+  <button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
+  
 	<span id="contactAddResult"></span>
+  -->
+  
+  
+  
   
 </div>
 
+<!-- The Popup Modal -->
+<div id="mkpopup" class="mkpopup">
+	<!-- Modal content -->
+	<div class="mkpopup-content">
+		<span class="mkpopupclose" onclick="closmkpopup();">&times;</span>
+		<h3>Add a new contact</h3>
+		<form method="post" name="popupcontact" onsubmit="popupvalidation();" action="#">
+			<div class="col-md-12">
+				<lable>Name <span class="required">*</span></lable>
+				<input type="text" id="Name"/><br />
+			</div>
+			<div class="col-md-12">
+				<lable>Phone No. <span class="required">*</span></lable>
+				<input type="text" id="Phone"/><br />
+			</div>
+			<div class="col-md-12">
+				<lable>Email<span class="required">*</span></lable>
+				<input type="text" id="Email"/><br />
+			</div>
+      
+			<div class="col-md-12">
+				<input type="submit" name="popupcontact" onclick="addContact();" value="Add">
+        <span id="contactAddResult"></span>
+			</div>
+		</form>
+	<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+</div>
+
+
 </body>
 </html>
+

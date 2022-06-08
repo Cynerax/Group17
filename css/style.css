@@ -2,7 +2,7 @@ body
 {
   margin: 0;
   padding: 0;
-  background-color: #99E1D9;
+  background-color: #99E1D9 !important;
   /*background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='95' height='95' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%2376bdb6' fill-opacity='0.6'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");*/
   height: 100vh;
   overflow: hidden;
@@ -28,17 +28,15 @@ color: blue;
 
 #loginDiv
 {
-  height: 500px;
+  height: 400px;
   width: 400px;
-  background-color: rgba(255,255,255,0.13);
+  background-color: rgba(255,255,255);
   position: absolute;
   transform: translate(-50%,-50%);
-  top: 50%;
+  top: 40.6%;
   left: 50%;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
+  border-radius: 0px;
   border: 2px solid rgba(255,255,255,0.1);
-  box-shadow: 0 0 10px rgba(8,7,16,0.6);
   padding: 50px 35px;
 }
 
@@ -52,31 +50,32 @@ color: blue;
 
 #modalRegisterForm
 {
-  height: 500px;
+  height: 650px;
   width: 400px;
-  background-color: rgba(255,255,255,0.13);
+  background-color: rgba(255,255,255);
   position: absolute;
   transform: translate(-50%,-50%);
   top: 50%;
   left: 50%;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
+  border-radius: 0px;
   border: 2px solid rgba(255,255,255,0.1);
-  box-shadow: 0 0 100px rgba(8,7,16,0.6);
+  
   padding: 50px 35px;
 }
 
 #accessUIDiv
 {
-    border: black;
-    font-size: 30px;
-    width: 100%;
-    margin-left: 0%;
-    padding: 0px;
-    border-top: 2px solid rgba(255,255,255,0.1);
-    border-bottom: 2px solid rgba(255,255,255,0.1);
-    background-color: #FFFFFF;
-    font-family: "Poppins", sans-serif;
+  height: 800px;
+  width: 800px;
+  background-color: rgba(255,255,255);
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 40.6%;
+  left: 50%;
+  border-radius: 0px;
+  border: 2px solid rgba(255,255,255,0.1);
+  
+  padding: 50px 35px;
 }
 
 .buttons
@@ -88,7 +87,7 @@ color: blue;
   margin-top: 5%;
   margin-bottom: 3%;
   background: #70abad;
-  border-radius: 7px;
+  border-radius: 0px;
   font-size: 22px;
   color: #000000;
   font-weight: bold;
@@ -98,17 +97,137 @@ color: blue;
   transition: 0.3s;
 }
 
+
+.loginbutton
+{
+  width: 80%;
+  height: 65px;
+  border: none;
+  margin-left: 10%;
+  margin-top: 90px !important;
+  margin-bottom: 0%;
+  background: #70abad;
+  border-radius: 0px;
+  font-size: 22px;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.contactbutton
+{
+  margin-left: 45px;
+  margin-right: 60px;
+  margin-top: 18px;
+  width: 240px; 
+  height: 50px;
+  border: none;
+  background: #70abad;
+  
+  font-size: 22px;
+  display: block;
+  opacity: 0.6;
+  transition: 0.3s;
+  float:left;
+}
+
+#contactList 
+{
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    margin: 1% 1%;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+    color: #000000;
+}
+
+#contactSearchResult
+{
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    margin: 1% 1%;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+    color: #000000;
+}
+
+#buttonDiv
+{
+  height: 875px;
+  width: 800px;
+  background-color: #99E1D9;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 0px;
+  padding: 0px 0px;
+}
+
+.button2 {
+  margin-left: 163px;
+  width: 237.2px;
+  height: 65px;
+  border: none;
+  background: #FFFFFF;
+  
+  font-size: 22px;
+  display: block;
+  opacity: 0.6;
+  transition: 0.3s;
+  float:left;
+  }
+
+.button3 {
+  width: 237.2px;
+  height: 65px;
+  border: none;
+  background: #FFFFFF;
+  margin: 0 auto;
+  font-size: 22px;
+  display: block;
+  opacity: 0.6;
+  transition: 0.3s;
+  float:left;
+  }
+
+.button2:hover{
+  opacity: 1;
+  transition: .5s;
+}
+
+.button3:hover{
+  opacity: 1;
+  transition: .5s;
+}
+
+.loginbutton:hover{
+  opacity: 1;
+  transition: .5s;
+}
+
 .buttons:hover{
+  opacity: 1;
+  transition: .5s;
+}
+
+.contactbutton:hover{
   opacity: 1;
   transition: .5s;
 }
 
 #loginName
 {
+  margin-top: 18px;
 	font-size: 23px;
 }
 #loginPassword
 {
+  margin-top: 18px;
 	font-size: 23px;
 }
 #registerName
@@ -146,7 +265,7 @@ color: blue;
 
 label {
   display: block;
-  margin-top: 30px;
+  margin-top: 0px;
   margin-bottom: 2px;
   font-size: 24px;
   font-weight: bold;
@@ -166,6 +285,21 @@ input[type="text"]{
   font-weight: bold;
   font-family: "Poppins", sans-serif;
 }
+
+input[type="logintext"]{
+  border: none;
+  border-bottom: 2px solid black;
+  display: block;
+  height: 50px;
+  width: 95%;
+  background-color: transparent;
+  padding: 0 10px;
+  margin-bottom: 90px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
 
 input[type="password"]{
   border: none;
@@ -261,4 +395,168 @@ select{
     margin-bottom: 1%;
     font-family: "Poppins", sans-serif;
     color: #95060a;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 330px;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 10%;
+  padding: 15.5px;
+  background: #70abad;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+form.example button:hover {
+  opacity: 1;
+  transition: .5s;
+}
+
+
+.mkpopup {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 99999999; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.mkpopup-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 100%;
+	max-width:700px;
+}
+/* The Close Button */
+.mkpopupclose {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+.mkpopupclose:hover, .mkpopupclose:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+
+.card{
+ 
+  width: 600px;
+  height: 730px;
+  border:none;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-top: 100px; /* Added */
+  position: absolute;
+}
+
+
+
+
+.btr{
+
+  border-top-right-radius: 5px !important;
+}
+
+
+.btl{
+
+  border-top-left-radius: 5px !important;
+}
+
+.btn-dark {
+    color: #ffffff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+
+.btn-dark:hover {
+    color: #ffffff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.nav {
+    
+    --bs-nav-link-color: #000000 !important;
+    --bs-nav-link-font-size: 40px !important;
+    
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #000    !important;
+    font-size: 40px !important;
+    background-color: #FFFFFF !important;
+    border-radius: 0px !important;
+}
+
+.nav-pills{
+
+  display:table !important;
+  width:100%;
+  
+}
+
+.nav-pills .nav-link {
+    border-radius: 0px;
+
+}
+
+.nav-item{
+      display: table-cell;
+      background: #d5d5d5;
+}
+
+
+.modal-footer {
+    
+    border-top: 0px solid #ffffff !important;
+    
+ }  
+    
+.form{
+
+  padding: 10px;
+      height: 300px;
+}
+
+
+
+
+.form input:focus{
+
+  box-shadow: none;
+}
+
+
+.form button{
+
+  margin-top: 20px;
 }
