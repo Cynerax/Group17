@@ -204,7 +204,7 @@ function updateContact()
 	let updatedName = document.getElementById("nameEdit").value;
 	let updatedPhone = document.getElementById("phoneEdit").value;
 	let updatedEmail = document.getElementById("emailEdit").value;
-	let contactId = document.getElementById("ID").value;
+	let contactId = idNum;
 	document.getElementById("updateResult").innerHTML = "";
 
 	let jsonPayload = '{"Name" : "' + updatedName + '", "Phone" : "' + updatedPhone + '", "Email" : "' + updatedEmail + '", "ID" : "' + contactId + '"}';
@@ -264,9 +264,9 @@ function searchContact()
 				{
         
 					contactList += jsonObject.results[i].Name + "  |  "  + jsonObject.results[i].Email + "  |  " + jsonObject.results[i].Phone;
-           
-             
-           //updatebutton[i].addEventListener('click', updateContact(jsonObject.results[i].contactID), false); 
+          document.getElementById("edit").innerHTML += "<button class='editbutton'>"+"<i class='fa fa-edit'></i>"+"</button>";
+          document.getElementById("edit").innerHTML += "<button class='editbutton'>"+"<i class='fa fa-remove'></i>"+"</button>";
+          
            //parse contactID as variable through update and delete and grab to use for functions 
            //button[i] on click delete/update get contactid[i]
               

@@ -104,7 +104,7 @@ color: blue;
   height: 65px;
   border: none;
   margin-left: 10%;
-  margin-top: 90px !important;
+  margin-top: 70px !important;
   margin-bottom: 0%;
   background: #70abad;
   border-radius: 0px;
@@ -137,12 +137,32 @@ color: blue;
 {
     font-size: 20px;
     font-weight: bold;
-    width: 100%;
+ 
     margin: 1% 1%;
     text-align: left;
     font-family: "Poppins", sans-serif;
+    display: block;
+    float:left;
     color: #000000;
 }
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.editbutton {
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #FFFFFF;
+  font-size: 22px;
+  display: block;
+  float:right;
+  }
+
 
 #contactSearchResult
 {
@@ -152,6 +172,8 @@ color: blue;
     margin: 1% 1%;
     text-align: left;
     font-family: "Poppins", sans-serif;
+    border: black;
+    border-radius: 5px;
     color: #000000;
 }
 
