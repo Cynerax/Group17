@@ -14,12 +14,15 @@ color: blue;
 
 #title 
 {
-    font-size: 40px;
-    width: 100%;
-    margin: 1% 1%;
+
+    font-size: 60px;
+    height: 50px;
+    width: 40%;
+    margin-left: -400px;
+    margin-right: 170px;
     text-align: center;
     font-family: "Poppins", sans-serif;
-    color: #FFFFFF;
+    color: #99E1D9;
 }
 
 #contact-page a {
@@ -42,9 +45,10 @@ color: blue;
 
 #loggedInDiv
 {
+    height: 65px;
     font-size: 15px;
-    width: 16%;
-    margin-left: 80.5%;
+    width: 23%;
+    margin-left: 75.5%;
     padding: 0px;
 }
 
@@ -66,16 +70,14 @@ color: blue;
 #accessUIDiv
 {
   height: 800px;
-  width: 800px;
+  width: 1050px;
   background-color: rgba(255,255,255);
   position: absolute;
   transform: translate(-50%,-50%);
-  top: 40.6%;
+  top: 500px;
   left: 50%;
   border-radius: 0px;
   border: 2px solid rgba(255,255,255,0.1);
-  
-  padding: 50px 35px;
 }
 
 .buttons
@@ -101,7 +103,7 @@ color: blue;
 .loginbutton
 {
   width: 80%;
-  height: 80px;
+  height: 65px;
   border: none;
   margin-left: 10%;
   margin-top: 70px !important;
@@ -113,15 +115,33 @@ color: blue;
   font-weight: bold;
   cursor: pointer;
   outline: none;
-  opacity: 0.7;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.demo
+{
+  width: 80%;
+  height: 65px;
+  border: none;
+  margin-left: 10%;
+  margin-top: 70px !important;
+  margin-bottom: 0%;
+  background: #70abad;
+  border-radius: 0px;
+  font-size: 22px;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  opacity: 0.6;
   transition: 0.3s;
 }
 .contactbutton
 {
   margin-left: 45px;
-  margin-right: 60px;
-  margin-top: 18px;
-  width: 240px; 
+  margin-top: 20px;
+  width: 200px; 
   height: 50px;
   border: none;
   background: #70abad;
@@ -148,32 +168,59 @@ color: blue;
 
 .column {
   float: left;
-  width: 50%;
+  width: 90%;
 }
 
+.column2 {
+  float: left;
+  width: 10%;
+}
 .editbutton {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-right: 10px;
-  width: 30px;
-  height: 30px;
+  margin-left: 0px;
+  width: 20px;
+  height: 11px;
   border: none;
   background: #FFFFFF;
-  font-size: 22px;
-  display: block;
+  place-content: end;
+  display: grid;
+  float:right;
+  }
+.deletebutton {
+  margin-top: 0px;
+  margin-right: 10px;
+  width: 20px;
+  height: 11px;
+  border: none;
+  background: #FFFFFF;
+  place-content: end;
+  display: grid;
   float:right;
   }
 
-
 #contactSearchResult
 {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     width: 100%;
-    margin: 1% 1%;
+    margin-left: 45px;
     text-align: left;
     font-family: "Poppins", sans-serif;
     border: black;
     border-radius: 5px;
+    color: #000000;
+}
+
+
+#norecords
+{
+    font-size: 36px;
+    height: 50px;
+    width: 40%;
+    margin-left: 34%;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
     color: #000000;
 }
 
@@ -312,7 +359,7 @@ input[type="logintext"]{
   border: none;
   border-bottom: 2px solid black;
   display: block;
-  height: 60px;
+  height: 50px;
   width: 95%;
   background-color: transparent;
   padding: 0 10px;
@@ -327,7 +374,7 @@ input[type="password"]{
   border: none;
   border-bottom: 2px solid black;
   display: block;
-  height: 60px;
+  height: 50px;
   width: 95%;
   background-color: transparent;
   padding: 0 10px;
@@ -376,15 +423,17 @@ input[type="password"]{
 #userName{
     display: inline-block;
     width: 80%;
-    margin-left: 10%;
-    text-align: center;
+    margin-top: 0px;
+    margin-left: -755px;
+    text-align: left;
 }
 
 #logoutButton{
-  width: 50%;
-  height: 30px;
+  width: 120px;
+  height: 35px;
   border: 1px solid;
-  margin-left: 26%;
+  margin-top: -75px;
+  margin-left: 105px;
   background: #000000;
   border-radius: 7px;
   font-size: 18px;
@@ -400,11 +449,6 @@ select{
     margin-top: 2%;
     font-size: 0.75em;
     font-family: "Poppins", sans-serif;
-}
-
-#contactSearchResult{
-    font-family: "Poppins", sans-serif;
-    color: #9f00bf;
 }
 
 #contactAddResult{
@@ -424,7 +468,7 @@ form.example input[type=text] {
   font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 330px;
+  width: 650px;
   background: #f1f1f1;
 }
 
@@ -570,8 +614,6 @@ form.example button:hover {
 }
 
 
-
-
 .form input:focus{
 
   box-shadow: none;
@@ -581,4 +623,40 @@ form.example button:hover {
 .form button{
 
   margin-top: 20px;
-}   
+}
+
+.table_section{
+    display: none;
+    height: 569px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+table{
+    width: auto;
+    table-layout: fixed;
+    min-width: 865px;
+    border-collapse: collapse;
+    margin-left: 10%;
+}
+thead th{
+    position: sticky;
+    top: 0;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    text-align: left;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+
+th,td{
+
+    border-bottom: 1px solid white;
+    padding: 10px 20px;
+    font-size: 24px !important;
+    
+}
+#magicSpace{
+    margin-left: 0px !important;
+}
