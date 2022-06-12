@@ -1,18 +1,18 @@
 <html>
 <head>
+  <link rel="shortcut icon" type="image/png" href="images/icons8-address-book-96.png"/>
+	<title>Contacts</title>
   
-	<title>COP 4331 LAMP Stack Demo</title>
-	<script type="text/javascript" src="js/code.js"></script>
     <link href="css/style.css" rel="stylesheet">	
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   	<!-- Load icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!--
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="bootstable.js"></script>
-    -->
+    <script src="js/bootstable.js"></script>
+    
     
 	<script type="text/javascript">
    
@@ -26,83 +26,104 @@
 
 
 <body>
-
-
-
-<h1 id="title">Contacts</h1>
-
-<div id="loggedInDiv">
-	<span id="userName"></span><br />
-	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
-</div>
-
-
-
-
-<div id="accessUIDiv">
-	<br />
-  <button type="button" id="addContactButton" class="contactbutton" onclick="openmkpopup();"> Add Contact </button><br />
-  <form class="example" action="javascript:void(0);">
-  <input type="text" id="searchText" placeholder="Search.." name="search">
-  <button type="button" id="searchColorButton" class="searchbutton" onclick="searchContact();"><i class="fa fa-search"></i></button>
-  </form>
-  <!--
-	<input type="text" id="searchText" placeholder="Contact To Search For"/>
-	<button type="button" id="searchColorButton" class="buttons" onclick="searchContact();"> Search Contact </button><br />
-  -->
   
-	<span id="contactSearchResult"></span>
-   <table id="example" class="display" width="100%" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                
-                <th></th>
-                <th></th> 
+  <script>
+      window.onload = function() {
+        document.getElementById("searchText").focus();
+      }
+  </script>
+  
+  <div id="accessUIDiv">
+  	<br />	
+    <div id="loggedInDiv">
+      <span id="title">Contacts</span>
+    	<span id="userName"></span><br />
+    	<button type="button" id="logoutButton" class="buttons" onclick="logoutconfirm();">Log Out <i class="fa fa-sign-out" aria-hidden="true"></i></button>
+    </div>
+    
+    <button type="button" id="addContactButton" class="contactbutton" onclick="openmkpopup();"><i class="fa fa-user-plus" aria-hidden="true"></i> Add Contact </button><br />
+    <form class="example" action="javascript:void(0);">
+      <input type="text" id="searchText" placeholder="Search.." name="search">
+      <button type="button" id="searchContactButton" class="searchbutton" onclick="show();"><i class="fa fa-search"></i></button><br />
+    </form> <br />
+      
+    <script>
+    var input = document.getElementById("searchText");
+    
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("searchContactButton").click();
+        }
+    });
+    </script>
+    
+  	<span id="contactSearchResult"></span><br /><br />
+    
+   <!-- create table from javascript-->
+   <div class = "table_section" id = "table_section">
+     <table>
+          <thead>
+              <tr>
+                  <th>Name</th>  
+                  <th>Email</th>      
+                  <th>Phone</th>
+                  <th id = "magicSpace" > Action</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+             <tr>
+              <td> <p id="nameList"> </p></td>
+              <td> <p id="emailList"> </p></td>
+              <td> <p id="phoneNumList"></p></td>
+              <td> <p id="buttonList"></p></td>
+              <td> <p id="buttondeleteList"></td>
             </tr>
-        </thead>
-    </table>
- <div id="edit"></div>
-  <div id="delete"></div>
- <p id="contactList">
-	</p><br /><br />
-  <!--
-	<input type="text" id="contactText" placeholder="Contact To Add">
-  <button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
-  
-	<span id="contactAddResult"></span>
-  -->
+          </tbody>
+      </table>
+     </div>
+     <span id="norecords"></span><br /><br />
+    <!--
+   <div id="edit"></div>
+    <div id="delete"></div>
+   <p id="contactList">
    
-</div>
-
-  
-
+  	</p><br /><br />
+    <!--
+  	<input type="text" id="contactText" placeholder="Contact To Add">
+    <button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
+    
+  	<span id="contactAddResult"></span>
+    -->
+  </div>
 
 <!-- The Popup Modal -->
-<div id="mkpopup" class="mkpopup">
+
+<div id="mkpopup2" class="mkpopup">
 	<!-- Modal content -->
 	<div class="mkpopup-content">
-		<span class="mkpopupclose" onclick="closmkpopup();">&times;</span>
-		<h3>Add a new contact</h3>
+		<span class="mkpopupclose" onclick="closmkpopup2();">&times;</span>
+		<h3>Edit Contact</h3>
 		<form method="post" name="popupcontact" onsubmit="popupvalidation();" action="#">
 			<div class="col-md-12">
-				<lable>Name <span class="required">*</span></lable>
-				<input type="text" id="Name"/><br />
+				<label>Name <span class="required">*</span></label>
+				<input type="text" id="nameEdit"/><br />
 			</div>
 			<div class="col-md-12">
-				<lable>Phone No. <span class="required">*</span></lable>
-				<input type="text" id="Phone"/><br />
+				<label>Phone No. <span class="required">*</span></label>
+				<input type="text" id="phoneEdit"/><br />
 			</div>
 			<div class="col-md-12">
-				<lable>Email<span class="required">*</span></lable>
-				<input type="text" id="Email"/><br />
+				<label>Email<span class="required">*</span></label>
+				<input type="text" id="emailEdit"/><br />
 			</div>
       
 			<div class="col-md-12">
-				<input type="submit" name="popupcontact" onclick="addContact();" value="Add">
-        <span id="contactAddResult"></span>
+     
+        <button id="demo">Update Contact</button>
+				
+        <span id="updateResult"></span>
 			</div>
 		</form>
 	<div class="clearfix"></div>
@@ -111,6 +132,37 @@
 </div>
 
 
-</body>
-</html>
+<div id="mkpopup" class="mkpopup">
+	<!-- Modal content -->
+	<div class="mkpopup-content">
+		<span class="mkpopupclose" onclick="closmkpopup();">&times;</span>
+		<h3>Add a new contact</h3>
+		<form method="post" name="popupcontact" onsubmit="popupvalidation();" action="#">
+			<div class="col-md-12">
+				<label>Name <span class="required">*</span></label>
+				<input type="text" id="Name"/><br />
+			</div>
+			<div class="col-md-12">
+				<label>Email<span class="required">*</span></label>
+				<input type="text" id="Email"/><br />
+			</div>
+      <div class="col-md-12">
+				<label>Phone No. <span class="required">*</span></label>
+				<input type="text" id="Phone"/><br />
+			</div>
+			<div class="col-md-12">
+				<input type="submit" name="popupcontact" onclick="addContact();" value="Add">
+        <span id="contactAddResult"></span>
+			</div>
+		</form>
 
+	<div class="clearfix"></div>
+</div>
+
+<div class="clearfix"></div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="js/code.js"></script>
+</html>
