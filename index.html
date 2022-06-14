@@ -15,80 +15,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-  
-  
-  <!--
-  
-  
-<div id="buttonDiv">
-  <button type="button" id="loginButton" class="button2" onclick="showDiv2()"> Login </button>
-  <button type="button" id="registerButton" class="button3" onclick="showDiv()"> Create Account </button>
-</div>  
-  
-<div id="loginDiv">
-	<span id="inner-title">Login</span>
-  <label for="username">Username</label>
-	<input type="text" id="loginName" placeholder="MartyMcFly" /><br />
-	<label for="password">Password</label>
-  <input type="password" id="loginPassword" placeholder="DeLorean1985"/><br />
-	<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Login </button>
-
-  <span id="loginResult"></span>
-</div>
-
-
-
-<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true" style="display:none;">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <span id="inner-title">Sign Up</span>
-      </div>
-        
-        
-        <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i>
-          <label data-error="wrong" data-success="right" for="orangeForm-name">First Name</label>
-          <input type="text" id="firstName" placeholder="First Name" /><br />
-        </div>
-        
-        <div class="modal-body mx-3"> 
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i>
-          <label data-error="wrong" data-success="right" for="orangeForm-name">Last Name</label>
-          <input type="text" id="lastName" placeholder="Last Name" /><br />
-        </div>
-      
-       <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i>
-          <label data-error="wrong" data-success="right" for="orangeForm-name">Username</label>
-          <input type="text" id="registerName" placeholder="Username" /><br />
-        </div>
-        
-
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <label data-error="wrong" data-success="right" for="orangeForm-pass">Password</label>
-          <input type="password" id="registerPassword" placeholder="Password"/><br />
-        </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button type="button" id="registerButton" class="buttons" onclick="register();"> Create Account </button>
-        <span id="registerResult"></span>
-      </div>
-    </div>
-  </div>
-</div>
-
-
--->
 
 <div class="d-flex justify-content-center align-items-center mt-5">
-
 
         <div class="card">
 
@@ -111,13 +39,11 @@
                   	<input type="logintext" id="loginName" placeholder="Username" /><br />
                   	<label for="password">Password</label>
                     <input type="password" id="loginPassword" placeholder="Password"/><br />
+                    <span id="loginResult"></span>
                   	<button type="button" id="loginButton" class="loginbutton" onclick="doLogin();"> Login </button>
                      
-                     <!-- Enter to login-->
-                     
-                     
+                     <!-- Enter to login--> 
                      <script>
-                     
                         window.onload = function() {
                           document.getElementById("loginName").focus();
                         }
@@ -129,11 +55,7 @@
                           }
                         });
                      </script>
-                    <span id="loginResult"></span>
-
                   </div>
-
-
 
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -164,7 +86,7 @@
                       <i class="fas fa-lock prefix grey-text"></i>
                       <label data-error="wrong" data-success="right" for="orangeForm-pass">Password</label>
                       <input type="password" id="registerPassword" placeholder="Password"/><br />
-                      
+                      <span id="registerResult"></span>
 
                   </div>
                   <div class="modal-footer d-flex justify-content-center">
@@ -180,7 +102,7 @@
                           }
                         });
                      </script>
-                    <span id="registerResult"></span>
+                    
                                 
 
                   </div>
