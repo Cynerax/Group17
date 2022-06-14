@@ -106,7 +106,7 @@ color: blue;
   height: 65px;
   border: none;
   margin-left: 10%;
-  margin-top: 70px !important;
+  margin-top: 40px !important;
   margin-bottom: 0%;
   background: #70abad;
   border-radius: 0px;
@@ -411,7 +411,8 @@ input[type="password"]{
 
 #loginResult{
     display: inline-block;
-    font-size: 0.8em;
+    font-size: 1.2em;
+    height: 60px;
     width: 90%;
     text-align: center;
     margin-left: 5%;
@@ -420,6 +421,17 @@ input[type="password"]{
     color: #95060a;
 }
 
+#registerResult{
+    display: inline-block;
+    font-size: 1.2em;
+    /*height: 60px;*/
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: "Poppins", sans-serif;
+    color: #95060a;
+}
 #userName{
     display: inline-block;
     width: 80%;
@@ -528,21 +540,16 @@ form.example button:hover {
 	cursor: pointer;
 }
 
-
-
 .card{
  
   width: 600px;
-  height: 730px;
+  height: 700px;
   border:none;
   margin: 0 auto; /* Added */
   float: none; /* Added */
   margin-top: 100px; /* Added */
   position: absolute;
 }
-
-
-
 
 .btr{
 
@@ -606,7 +613,12 @@ form.example button:hover {
     border-top: 0px solid #ffffff !important;
     
  }  
+   
+.modal-body {
     
+   padding: 0rem !important;
+    
+ }   
 .form{
 
   padding: 10px;
@@ -649,9 +661,7 @@ thead th{
     margin-left: 0px;
 }
 
-
 th,td{
-
     border-bottom: 1px solid white;
     padding: 10px 20px;
     font-size: 24px !important;
