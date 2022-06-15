@@ -45,12 +45,12 @@ function doLogin()
 	
 	let login = document.getElementById("loginName").value;
 	let password = document.getElementById("loginPassword").value;
-  //var hash = md5( password );
+  var hash = md5(password);
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	let tmp = {login:login,password:password};
-  //var tmp = {login:login,password:hash};
+	//let tmp = {login:login,password:password};
+  var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
 	let url = urlBase + '/Login.' + extension;
@@ -150,8 +150,8 @@ function register()
 	let password = document.getElementById("registerPassword").value;
  
 	document.getElementById("registerResult").innerHTML = "";
-
-	let tmp = { firstname: firstName, lastname: lastName, login: login, password: password };
+  var hash = md5(password);
+	let tmp = { firstname: firstName, lastname: lastName, login: login, password: hash };
 	let jsonPayload = JSON.stringify(tmp);
 
 	let url = urlBase + '/Register.' + extension;
@@ -230,7 +230,7 @@ function addContact()
     			if (this.readyState == 4 && this.status == 200) 
     			{
     				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
-            //searchContact();
+            searchContact();
     			}
     		};
     		xhr.send(jsonPayload);
